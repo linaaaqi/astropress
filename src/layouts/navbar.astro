@@ -1,10 +1,18 @@
 ---
 
 ---
-<nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/blogs">Blog</a></li>
-    </ul>
+<nav class="flex flex-row items-center justify-center p-4 w-full">
+    <div class="flex flex-row justify-between flex-none w-full max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg">
+        <a href="/" class="flex flex-row items-center gap-1">
+            <img src="/favicon.svg" alt="Astro logo" class="w-8 h-8"/>
+            <span>
+                <strong>Astro</strong>
+            </span>
+        </a>
+        <ul class="flex flex-row gap-8">
+            <li class="font-semibold"><a href="/">Home</a></li>
+            <li class="font-semibold"><a href="/blogs">Blog</a></li>
+            <li class="font-semibold"><a href="/about">About</a></li>
+        </ul>
+    </div>
 </nav>
