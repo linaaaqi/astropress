@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content'
+import AstropressConfig from '@/config'
+import { getEntry } from 'astro:content'
+import Layout from '@/layouts/layout.astro'
+
+
+export async function getStaticPaths () {
+  const posts = await getCollection(AstropressConfig.contentPath)
+
+  return posts.map(post => ({
+    params: {
+      post: post.slug
+    },
+    props: { ...post }
+  }))
+}
+
+const { post } = Astro.params
+
+const entry = await getEntry(AstropressConfig.contentPath, post)
+const { Content } = await entry.render()
+---
+<Layout>
+  <h1>Astro</h1>
+
+  <Content/>
+
+  <script src="https://giscus.app/client.js"
+          data-repo="linaaaqi/blog"
+          data-repo-id="R_kgDONiDwnQ"
+          data-category="Announcements"
+          data-category-id="DIC_kwDONiDwnc4ClgYb"
+          data-mapping="title"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+</Layout>
+

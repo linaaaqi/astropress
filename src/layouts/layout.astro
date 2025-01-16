@@ -1,0 +1,25 @@
+---
+import Navbar from './navbar.astro'
+import config from '@/config'
+
+const { site } = config
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="generator" content={Astro.generator}/>
+    <meta name="description" content={site.description}/>
+    <title>{site.title}</title>
+  </head>
+  <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
+    <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+      <Navbar/>
+      <main>
+        <slot/>
+      </main>
+    </div>
+  </body>
+</html>
